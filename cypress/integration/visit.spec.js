@@ -7,6 +7,6 @@ beforeEach(() => {
 
 describe('', () => {
   it('', () => {
-    cy.contains('Login')
+    cy.get('.grid').should('be.visible')
   })
 })

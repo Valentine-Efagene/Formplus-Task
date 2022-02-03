@@ -1,67 +1,23 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  incrementAsync,
-  incrementIfOdd,
-  selectCount,
-} from "../../redux/slices/templateTaskSlice";
-import styles from "./Counter.module.css";
+import React from 'react'
+import styles from './Card.module.css'
+import { toDateTime } from '../../util/datetime'
+import { object } from 'prop-types'
 
-export function Counter() {
-  const count = useSelector(selectCount);
-  const dispatch = useDispatch();
-  const [incrementAmount, setIncrementAmount] = useState("2");
-
-  const incrementValue = Number(incrementAmount) || 0;
-
+const Card = ({ data }) => {
+  const { category, created, description, link, name } = data
   return (
-    <div>
-      <div className={styles.row}>
-        <button
-          className={styles.button}
-          aria-label='Decrement value'
-          onClick={() => dispatch(decrement())}
-        >
-          -
-        </button>
-        <span className={styles.value}>{count}</span>
-        <button
-          className={styles.button}
-          aria-label='Increment value'
-          onClick={() => dispatch(increment())}
-        >
-          +
-        </button>
-      </div>
-      <div className={styles.row}>
-        <input
-          className={styles.textbox}
-          aria-label='Set increment amount'
-          value={incrementAmount}
-          onChange={(e) => setIncrementAmount(e.target.value)}
-        />
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementByAmount(incrementValue))}
-        >
-          Add Amount
-        </button>
-        <button
-          className={styles.asyncButton}
-          onClick={() => dispatch(incrementAsync(incrementValue))}
-        >
-          Add Async
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementIfOdd(incrementValue))}
-        >
-          Add If Odd
-        </button>
-      </div>
+    <div className={styles.card}>
+      <div className={styles.name}>{name}</div>
+      <div className={styles.description}>{description}</div>
+      <div className={styles.category}>{category.join(', ')}</div>
+      <div className={styles.created}>{toDateTime(created)}</div>
+      <a className={styles.link} href={link}>
+        {link}
+      </a>
     </div>
-  );
+  )
 }
+
+Card.propTypes = { data: object }
+
+export default Card

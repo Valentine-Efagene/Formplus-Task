@@ -1,33 +1,16 @@
-import counterReducer, {
-  increment,
-  decrement,
-  incrementByAmount,
-} from "../../redux/slices/templateTaskSlice";
+import React from 'react'
+import { mount } from '@cypress/react'
+import Card from './Card'
 
-describe("counter reducer", () => {
-  const initialState = {
-    value: 3,
-    status: "idle",
-  };
-  it("should handle initial state", () => {
-    expect(counterReducer(undefined, { type: "unknown" })).toEqual({
-      value: 0,
-      status: "idle",
-    });
-  });
+const data = {
+  category: ['Health', 'E-commerce', 'Education'],
+  created: '2022-02-01T21:31:04.916002',
+  description: 'consequat. laborum. adipiscing fugiat labore',
+  link: 'https://formpl.us/templates',
+  name: 'consectetur Lorem veniam,',
+}
 
-  it("should handle increment", () => {
-    const actual = counterReducer(initialState, increment());
-    expect(actual.value).toEqual(4);
-  });
-
-  it("should handle decrement", () => {
-    const actual = counterReducer(initialState, decrement());
-    expect(actual.value).toEqual(2);
-  });
-
-  it("should handle incrementByAmount", () => {
-    const actual = counterReducer(initialState, incrementByAmount(2));
-    expect(actual.value).toEqual(5);
-  });
-});
+it('renders card', () => {
+  mount(<Card data={data} />)
+  cy.get('div').should('not.be.null')
+})
