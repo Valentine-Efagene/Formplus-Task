@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+//import styles from './App.module.css'
 import Grid from './components/Grid/Grid'
 import { fetch } from './redux/slice/dataSlice'
+import ToolBar from './components/ToolBar/ToolBar'
 
 const d = [
   {
@@ -120,8 +120,8 @@ function App() {
     try {
       const _promise = dispatch(fetch())
       setPromise(_promise)
-      _data = await _promise.unwrap()
-      setMessages(_data || [])
+      const _data = await _promise.unwrap()
+      setData(_data || [])
     } catch (e) {
       //dispatch(setAlert(e.message))
       console.log(e.message)
@@ -134,6 +134,7 @@ function App() {
 
   return (
     <div className="App">
+      <ToolBar />
       <Grid data={d}></Grid>
     </div>
   )

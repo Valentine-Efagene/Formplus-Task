@@ -12,12 +12,12 @@ code {
     monospace;
 }
 
-/*@font-face {
+@font-face {
   font-family: 'Inter';
   src: url(./asset/font/Inter/Inter-VariableFont_slnt\wght.ttf);
 }
 
-@font-face {
-  font-family: 'gotham-rounded';
+/*@font-face {
+  font-family: gotham-rounded;
   src: url(./asset/font/Gotham/GothamRounded-Book.otf);
 }*/
