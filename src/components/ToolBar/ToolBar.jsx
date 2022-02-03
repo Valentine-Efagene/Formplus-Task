@@ -12,22 +12,24 @@ const ToolBar = () => {
     <div className={styles.toolBar}>
       <SearchBar className={styles.left} />
       <div className={styles.right}>
-        <span>Sort by: </span>
-        <Select
-          defaultIndex={0}
-          options={['health', 'education', 'media']}
-          setter={setCategory}
-        ></Select>
-        <Select
-          defaultIndex={0}
-          options={['All', 'some', 'few']}
-          setter={setOrder}
-        ></Select>
-        <Select
-          defaultIndex={0}
-          options={['01/03/2022', '01/03/2022', '01/03/2022']}
-          setter={setDate}
-        ></Select>
+        <span className={styles.sortLabel}>Sort By: </span>
+        <div className={styles.filters}>
+          <Select
+            defaultIndex={0}
+            options={['health', 'education', 'media']}
+            setter={setCategory}
+          ></Select>
+          <Select
+            defaultIndex={0}
+            options={['All', 'some', 'few']}
+            setter={setOrder}
+          ></Select>
+          <Select
+            defaultIndex={0}
+            options={['01/03/2022', '01/03/2022', '01/03/2022']}
+            setter={setDate}
+          ></Select>
+        </div>
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from '@cypress/react'
-import Card from './Card'
+import ToolBar from './ToolBar'
 
 const data = {
   category: ['Health', 'E-commerce', 'Education'],
@@ -11,6 +11,6 @@ const data = {
 }
 
 it('renders card', () => {
-  mount(<Card data={data} />)
+  mount(<ToolBar />)
   cy.get('div').should('not.be.null')
 })

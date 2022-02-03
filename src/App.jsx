@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-//import styles from './App.module.css'
+import styles from './App.module.css'
 import Grid from './components/Grid/Grid'
 import { fetch } from './redux/slice/dataSlice'
 import ToolBar from './components/ToolBar/ToolBar'
@@ -133,7 +133,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div className={styles.app}>
       <ToolBar />
       <Grid data={d}></Grid>
     </div>
