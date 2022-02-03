@@ -1,13 +1,15 @@
 import { array, func, number, string } from 'prop-types'
 import React from 'react'
 import styles from './Select.module.css'
+import { useDispatch } from 'react-redux'
 
 const Select = ({ defaultIndex, options, setter }) => {
+  const dispatch = useDispatch()
   return (
     <select
       required
       className={styles.select}
-      onChange={(e) => setter(e.target.value)}
+      onChange={(e) => dispatch(setter(e.target.value))}
     >
       {options.map((_option, index) => {
         return (

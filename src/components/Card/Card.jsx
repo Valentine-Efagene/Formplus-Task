@@ -12,7 +12,7 @@ const Card = ({ data }) => {
       <div className={styles.category}>{category.join(', ')}</div>
       <div className={styles.created}>{toDateTime(created)}</div>
       <a className={styles.link} href={link}>
-        {link}
+        Use Template
       </a>
     </div>
   )

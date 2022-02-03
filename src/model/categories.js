@@ -1,0 +1,6 @@
+const ALL = "ALL";
+const HEALTH = "HEALTH";
+const E_COMMERCE = "E-COMMERCE";
+const EDUCATION = "EDUCATION";
+
+export { ALL, HEALTH, E_COMMERCE, EDUCATION };
