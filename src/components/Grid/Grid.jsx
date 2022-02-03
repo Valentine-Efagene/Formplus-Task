@@ -10,11 +10,11 @@ const Grid = ({ data }) => {
 
   return (
     <div className={styles.grid}>
-      {category}
+      {/* {category}
       <br />
       {order}
       <br />
-      {date}
+      {date} */}
       {data.map((d, index) => {
         return <Card key={index} data={d}></Card>
       })}

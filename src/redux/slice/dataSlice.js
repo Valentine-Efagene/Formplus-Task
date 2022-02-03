@@ -28,20 +28,27 @@ const dataSlice = createSlice({
     order: ASCENDING,
     status: IDLE,
     error: null,
+    page: 1
   },
   reducers: {
     setCategory(state, action) {
       state.category = action.payload
       state.date = 'NO'
       state.order = ASCENDING
+      state.page = 1
     },
     setDate(state, action) {
       state.date = action.payload
       state.order = DESCENDING
+      state.page = 1
     },
     setOrder(state, action) {
       state.order = action.payload
       state.date = 'NO'
+      state.page = 1
+    },
+    setPage(state, action) {
+      state.page = action.payload
     },
   },
   extraReducers(builder) {
@@ -52,6 +59,7 @@ const dataSlice = createSlice({
       .addCase(fetch.fulfilled, (state, action) => {
         state.data = action.payload
         state.status = SUCCEEDED
+        state.page = 1
         state.error = null
       })
       .addCase(fetch.rejected, (state, action) => {
@@ -62,5 +70,5 @@ const dataSlice = createSlice({
 })
 
 export { fetch }
-export const { setCategory, setDate, setOrder } = dataSlice.actions
+export const { setCategory, setDate, setOrder, setPage } = dataSlice.actions
 export default dataSlice.reducer

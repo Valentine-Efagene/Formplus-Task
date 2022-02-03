@@ -1,8 +1,7 @@
 .grid {
-  width: 100%;
+  margin: 0 auto;
   height: 100%;
-  font-family: sans-serif;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  font-family: 'Inter';
   display: grid;
   grid-gap: 50px;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
