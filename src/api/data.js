@@ -1,93 +1,93 @@
 import axios from "axios"
 
 export async function fetchData() {
-  const data = [
+  const _data = [
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Health'],
+      created: '2022-01-01T21:31:05.113387',
+      description: 'Excepteur minim commodo incididunt aliquip',
+      link: 'https://formpl.us/templates',
+      name: 'ullamco elit, labore',
+    },
+    {
+      category: ['Health'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Health'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Health'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Health'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Education'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Education'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Education'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Education'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Education'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['Education'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['E-commerce'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
       name: 'ullamco elit, labore',
     },
     {
-      category: ['Health', 'E-commerce', 'Education'],
-      created: '2022-02-01T21:31:05.113387',
-      description: 'Excepteur minim commodo incididunt aliquip',
-      link: 'https://formpl.us/templates',
-      name: 'ullamco elit, labore',
-    },
-    {
-      category: ['Health', 'E-commerce', 'Education'],
+      category: ['E-commerce'],
       created: '2022-02-01T21:31:05.113387',
       description: 'Excepteur minim commodo incididunt aliquip',
       link: 'https://formpl.us/templates',
@@ -184,6 +184,9 @@ export async function fetchData() {
       "name": "ullamco eiusmod"
     }
   ]
-  //const data = await axios.get("https://api.example.com/itemshttps://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates")
-  return data
+  //didnt work //const data = await axios.get("https://api.example.com/itemshttps://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates")
+  //const data = await axios.get("https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates")
+  //return data
+
+  return { data: _data }
 }

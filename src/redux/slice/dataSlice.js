@@ -14,7 +14,7 @@ const fetch = createAsyncThunk(
       tokenSource.cancel()
     })
 
-    const data = await fetchData()
+    const { data } = await fetchData()
     return data
   }
 )
@@ -44,6 +44,7 @@ const dataSlice = createSlice({
     },
     setOrder(state, action) {
       state.order = action.payload
+      state.category = ALL
       state.date = 'NO'
       state.page = 1
     },

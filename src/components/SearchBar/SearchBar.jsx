@@ -29,7 +29,7 @@ const SearchBar = () => {
 
   const search = async () => {
     try {
-      dispatch(fetch({ category }))
+      dispatch(fetch())
     } catch (e) {
       //dispatch(setAlert(e.message))
       console.log(e.message)
