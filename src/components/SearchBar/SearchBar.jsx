@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './SearchBar.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetch } from '../../redux/slice/dataSlice'
+import { fetch, setSearch } from '../../redux/slice/dataSlice'
 
 const SearchBar = () => {
   const dispatch = useDispatch()
@@ -29,10 +29,15 @@ const SearchBar = () => {
 
   const search = async () => {
     try {
-      dispatch(fetch())
+      dispatch(setSearch(searchText))
     } catch (e) {
-      //dispatch(setAlert(e.message))
       console.log(e.message)
+    }
+  }
+
+  const onKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      search()
     }
   }
 
@@ -40,6 +45,7 @@ const SearchBar = () => {
     <span className={styles.searchBar}>
       <input
         onBlur={onBlur}
+        onKeyDown={onKeyDown}
         onChange={onChange}
         value={searchText}
         type="text"

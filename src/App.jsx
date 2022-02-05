@@ -4,12 +4,17 @@ import styles from './App.module.css'
 import Grid from './components/Grid/Grid'
 import Paginator from './components/Paginator/Paginator'
 import ToolBar from './components/ToolBar/ToolBar'
-import { filterByCategory, sortByDate, sortByOrder } from './util/processing'
+import {
+  filterByCategory,
+  searchName,
+  sortByDate,
+  sortByOrder,
+} from './util/processing'
 import { fetch as fetchData } from './redux/slice/dataSlice'
 
 function App() {
   const dispatch = useDispatch()
-  const { data, page, category, date, order } = useSelector(
+  const { data, page, category, date, order, search } = useSelector(
     (state) => state.data
   )
 
@@ -18,6 +23,10 @@ function App() {
 
   if (date === 'YES') {
     filteredData = sortByDate(filteredData)
+  }
+
+  if (search) {
+    filteredData = searchName(search, data)
   }
 
   useEffect(() => {

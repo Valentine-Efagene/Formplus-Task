@@ -28,7 +28,8 @@ const dataSlice = createSlice({
     order: ASCENDING,
     status: IDLE,
     error: null,
-    page: 1
+    page: 1,
+    search: null
   },
   reducers: {
     setCategory(state, action) {
@@ -36,20 +37,26 @@ const dataSlice = createSlice({
       state.date = 'NO'
       state.order = ASCENDING
       state.page = 1
+      state.search = null
     },
     setDate(state, action) {
       state.date = action.payload
       state.order = DESCENDING
       state.page = 1
+      state.search = null
     },
     setOrder(state, action) {
       state.order = action.payload
       state.category = ALL
       state.date = 'NO'
       state.page = 1
+      state.search = null
     },
     setPage(state, action) {
       state.page = action.payload
+    },
+    setSearch(state, action) {
+      state.search = action.payload
     },
   },
   extraReducers(builder) {
@@ -71,5 +78,5 @@ const dataSlice = createSlice({
 })
 
 export { fetch }
-export const { setCategory, setDate, setOrder, setPage } = dataSlice.actions
+export const { setCategory, setDate, setOrder, setPage, setSearch } = dataSlice.actions
 export default dataSlice.reducer

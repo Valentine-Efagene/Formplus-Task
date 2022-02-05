@@ -7,6 +7,10 @@ export const filterByCategory = (category, data) => {
     : data.filter((record) => record.category.includes(category))
 }
 
+export const searchName = (name, data) => {
+  return (name === null || name === '') ? data : data.filter((record) => record.name.toLowerCase() === name.toLowerCase())
+}
+
 export const sortByDate = (data) => {
   const dataToSort = [...data]
 

@@ -22,16 +22,19 @@ const ToolBar = () => {
         <span className={styles.sortLabel}>Sort By: </span>
         <div className={styles.filters}>
           <Select
+            title="Category"
             defaultIndex={categories.indexOf(category)}
             options={categories}
             setter={setCategory}
           ></Select>
           <Select
+            title="Order"
             defaultIndex={orders.indexOf(order)}
             options={orders}
             setter={setOrder}
           ></Select>
           <Select
+            title="Date"
             defaultIndex={dates.indexOf(date)}
             options={dates}
             setter={setDate}

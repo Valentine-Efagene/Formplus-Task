@@ -12,3 +12,12 @@
   border: none;
   padding: 40px;
 }
+
+.title {
+  position: relative;
+  top: -29px;
+  left: -180px;
+  background: white;
+  padding: 0 10px;
+  font-size: small;
+}
