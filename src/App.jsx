@@ -11,23 +11,13 @@ import {
   sortByOrder,
 } from './util/processing'
 import { fetch as fetchData } from './redux/slice/dataSlice'
+import Info from './components/Info/Info'
 
 function App() {
   const dispatch = useDispatch()
   const { data, page, category, date, order, search } = useSelector(
     (state) => state.data
   )
-
-  let filteredData = filterByCategory(category, data)
-  filteredData = sortByOrder(filteredData, order)
-
-  if (date === 'YES') {
-    filteredData = sortByDate(filteredData)
-  }
-
-  if (search) {
-    filteredData = searchName(search, data)
-  }
 
   useEffect(() => {
     init()
@@ -41,11 +31,27 @@ function App() {
     }
   }
 
+  let filteredData = filterByCategory(category, data)
+  filteredData = sortByOrder(filteredData, order)
+
+  if (date === 'YES') {
+    filteredData = sortByDate(filteredData)
+  }
+
+  if (search) {
+    filteredData = searchName(search, filteredData)
+  }
+
   const NUMBER_PER_PAGE = 16
 
   return (
     <div className={styles.app}>
       <ToolBar />
+      <Info
+        text="Tada! Get started with a free template. Can't find what you are looking for? Search from the 1000+ available templates"
+        icon={<i className="fas fa-info-circle"></i>}
+      />
+      <div className={styles.category}>{category} Templates</div>
       <Grid
         data={filteredData.slice(
           (page - 1) * NUMBER_PER_PAGE,

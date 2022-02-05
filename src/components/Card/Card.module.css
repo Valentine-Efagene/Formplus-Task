@@ -9,20 +9,16 @@
   text-align: start;
 }
 
-.header {
+.name {
   font-weight: 500;
   font-size: 29px;
   margin: 10px 0;
   padding-left: 10px;
 }
 
-.name {
-  padding: 10px;
-}
-
 .description {
   text-overflow: ellipsis;
-  max-width: 75ch;
+  max-width: 100ch;
   width: 95%;
   margin: 10px;
 }

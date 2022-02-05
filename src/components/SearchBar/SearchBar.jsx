@@ -1,35 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './SearchBar.module.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetch, setSearch } from '../../redux/slice/dataSlice'
+import { useDispatch } from 'react-redux'
+import { setSearch } from '../../redux/slice/dataSlice'
+import { useRef } from 'react'
 
 const SearchBar = () => {
   const dispatch = useDispatch()
-  const { category } = useSelector((state) => state.data)
-  const { date } = useSelector((state) => state.data)
-  const [data, setData] = useState([])
-  const [promise, setPromise] = useState()
+  const searchInputRef = useRef()
 
-  const [searchText, setSearchText] = useState('')
-  const MAX_LENGTH = 100
-
-  const onBlur = () => {
-    if (searchText.length > MAX_LENGTH) {
-      setSearchText(searchText.slice(0, MAX_LENGTH))
-    }
-  }
-
-  const onChange = (e) => {
-    setSearchText(
-      searchText.length <= MAX_LENGTH
-        ? e.target.value
-        : e.target.value.slice(0, MAX_LENGTH)
-    )
-  }
-
-  const search = async () => {
+  const handleSearch = () => {
     try {
-      dispatch(setSearch(searchText))
+      dispatch(setSearch(searchInputRef.current.value))
     } catch (e) {
       console.log(e.message)
     }
@@ -37,24 +18,22 @@ const SearchBar = () => {
 
   const onKeyDown = (e) => {
     if (e.key === 'Enter') {
-      search()
+      handleSearch()
     }
   }
 
   return (
     <span className={styles.searchBar}>
       <input
-        onBlur={onBlur}
+        ref={searchInputRef}
         onKeyDown={onKeyDown}
-        onChange={onChange}
-        value={searchText}
         type="text"
         name="search"
         id="search"
         className={styles.searchInput}
-        placeholder="search"
+        placeholder="Search Templates"
       />
-      <button className={styles.searchButton} onClick={search}>
+      <button className={styles.searchButton} onClick={handleSearch}>
         <i className={`fa fa-search ${styles.SearchIcon}`}></i>
       </button>
     </span>

@@ -35,9 +35,9 @@ const dataSlice = createSlice({
     setCategory(state, action) {
       state.category = action.payload
       state.date = 'NO'
+      state.search = null
       state.order = ASCENDING
       state.page = 1
-      state.search = null
     },
     setDate(state, action) {
       state.date = action.payload

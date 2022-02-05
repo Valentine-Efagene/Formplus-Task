@@ -1,16 +1,33 @@
 import { ALL } from "../model/categories"
 import { ASCENDING } from "../model/order"
 
+/**
+ * 
+ * @param {string} category 
+ * @param {array} data 
+ * @returns array
+ */
 export const filterByCategory = (category, data) => {
   return category === ALL
     ? data
     : data.filter((record) => record.category.includes(category))
 }
 
+/**
+ * 
+ * @param {string} name 
+ * @param {array} data 
+ * @returns array
+ */
 export const searchName = (name, data) => {
   return (name === null || name === '') ? data : data.filter((record) => record.name.toLowerCase() === name.toLowerCase())
 }
 
+/**
+ * 
+ * @param {array} data 
+ * @returns array
+ */
 export const sortByDate = (data) => {
   const dataToSort = [...data]
 
@@ -19,6 +36,12 @@ export const sortByDate = (data) => {
   });
 }
 
+/**
+ * 
+ * @param {array} data 
+ * @param {string} order 
+ * @returns array
+ */
 export const sortByOrder = (data, order) => {
   if (data.length == 0) return data
   // https://flutterq.com/typeerror-cannot-assign-to-read-only-property-0-of-object-object-array/
