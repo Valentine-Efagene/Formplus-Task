@@ -34,9 +34,7 @@ function App() {
   let filteredData = filterByCategory(category, data)
   filteredData = sortByOrder(filteredData, order)
 
-  if (date === 'YES') {
-    filteredData = sortByDate(filteredData)
-  }
+  filteredData = sortByDate(filteredData, date)
 
   if (search) {
     filteredData = searchName(search, filteredData)

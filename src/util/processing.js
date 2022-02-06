@@ -1,5 +1,5 @@
 import { ALL } from "../model/categories"
-import { ASCENDING } from "../model/order"
+import { ASCENDING, DEFAULT } from "../model/order"
 
 /**
  * 
@@ -28,11 +28,19 @@ export const searchName = (name, data) => {
  * @param {array} data 
  * @returns array
  */
-export const sortByDate = (data) => {
+export const sortByDate = (data, order) => {
+  if (order === DEFAULT) {
+    return data
+  }
+
   const dataToSort = [...data]
 
   return dataToSort.sort((a, b) => {
-    return (a.created < b.created) ? -1 : ((a.created > b.created) ? 1 : 0)
+    if (order === ASCENDING) {
+      return (a.created < b.created) ? -1 : ((a.created > b.created) ? 1 : 0)
+    } else {
+      return (a.created > b.created) ? -1 : ((a.created < b.created) ? 1 : 0)
+    }
   });
 }
 
@@ -43,7 +51,7 @@ export const sortByDate = (data) => {
  * @returns array
  */
 export const sortByOrder = (data, order) => {
-  if (data.length == 0) return data
+  if (data.length == 0 || order === DEFAULT) return data
   // https://flutterq.com/typeerror-cannot-assign-to-read-only-property-0-of-object-object-array/
   const dataToSort = [...data]
 

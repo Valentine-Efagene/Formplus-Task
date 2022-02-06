@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { SUCCEEDED, FAILED, IDLE, LOADING } from '../../model/loadingState'
 import { fetchData } from '../../api/data'
 import { ALL } from "../../model/categories"
-import { ASCENDING, DESCENDING } from "../../model/order"
+import { ASCENDING, DEFAULT, DESCENDING } from "../../model/order"
 
 const fetch = createAsyncThunk(
   'data/fetch',
@@ -24,8 +24,8 @@ const dataSlice = createSlice({
   initialState: {
     data: [],
     category: ALL,
-    date: 'NO',
-    order: ASCENDING,
+    date: DEFAULT,
+    order: DEFAULT,
     status: IDLE,
     error: null,
     page: 1,
@@ -41,14 +41,14 @@ const dataSlice = createSlice({
     },
     setDate(state, action) {
       state.date = action.payload
-      state.order = DESCENDING
+      state.order = DEFAULT
       state.page = 1
       state.search = null
     },
     setOrder(state, action) {
       state.order = action.payload
       state.category = ALL
-      state.date = 'NO'
+      state.date = DEFAULT
       state.page = 1
       state.search = null
     },

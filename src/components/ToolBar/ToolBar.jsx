@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './ToolBar.module.css'
 import SearchBar from '../SearchBar/SearchBar'
 import Select from '../Select/Select'
@@ -7,12 +7,12 @@ import { setCategory } from '../../redux/slice/dataSlice'
 import { setDate } from '../../redux/slice/dataSlice'
 import { setOrder } from '../../redux/slice/dataSlice'
 import { ALL, EDUCATION, E_COMMERCE, HEALTH } from '../../model/categories'
-import { ASCENDING, DESCENDING } from '../../model/order'
+import { ASCENDING, DESCENDING, DEFAULT } from '../../model/order'
 
 const ToolBar = () => {
   const categories = [ALL, HEALTH, E_COMMERCE, EDUCATION]
-  const dates = ['NO', 'YES']
-  const orders = [ASCENDING, DESCENDING]
+  const dates = [DEFAULT, ASCENDING, DESCENDING]
+  const orders = [DEFAULT, ASCENDING, DESCENDING]
   const { category, date, order } = useSelector((state) => state.data)
 
   return (
@@ -23,19 +23,19 @@ const ToolBar = () => {
         <div className={styles.filters}>
           <Select
             title="Category"
-            defaultIndex={categories.indexOf(category)}
+            defaultValue={category}
             options={categories}
             setter={setCategory}
           ></Select>
           <Select
             title="Order"
-            defaultIndex={orders.indexOf(order)}
+            defaultValue={order}
             options={orders}
             setter={setOrder}
           ></Select>
           <Select
             title="Date"
-            defaultIndex={dates.indexOf(date)}
+            defaultValue={date}
             options={dates}
             setter={setDate}
           ></Select>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Card.module.css'
-//import { toDateTime } from '../../util/datetime'
+import { toDateTime } from '../../util/datetime'
 import { object } from 'prop-types'
 import { string } from 'prop-types'
 
@@ -9,7 +9,7 @@ const Card = ({ data, currentCategory }) => {
     description,
     link,
     //category,
-    //created,
+    created,
     name,
   } = data
   return (
@@ -17,8 +17,8 @@ const Card = ({ data, currentCategory }) => {
       {/* <div className={styles.header}>{`${currentCategory} templates`}</div> */}
       <div className={styles.name}>{name}</div>
       <div className={styles.description}>{description}</div>
-      {/* <div className={styles.category}>{category.join(', ')}</div>
-      <div className={styles.created}>{toDateTime(created)}</div> */}
+      {/* <div className={styles.category}>{category.join(', ')}</div> */}
+      <div className={styles.created}>{toDateTime(created)}</div>
       <a className={styles.link} href={link}>
         Use Template
       </a>

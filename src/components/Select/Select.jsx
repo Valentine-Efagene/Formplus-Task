@@ -1,24 +1,21 @@
-import { array, func, number, string } from 'prop-types'
+import { array, func, string } from 'prop-types'
 import React from 'react'
 import styles from './Select.module.css'
 import { useDispatch } from 'react-redux'
 
-const Select = ({ defaultIndex, options, setter, title }) => {
+const Select = ({ defaultValue, options, setter, title }) => {
   const dispatch = useDispatch()
   return (
     <span>
       <select
         required
         className={styles.select}
+        value={defaultValue}
         onChange={(e) => dispatch(setter(e.target.value))}
       >
         {options.map((_option, index) => {
           return (
-            <option
-              key={index}
-              value={_option}
-              defaultValue={options[defaultIndex]}
-            >
+            <option key={index} value={_option}>
               {_option}
             </option>
           )
@@ -30,7 +27,7 @@ const Select = ({ defaultIndex, options, setter, title }) => {
 }
 
 Select.propTypes = {
-  defaultIndex: number,
+  defaultValue: string,
   options: array,
   setter: func,
   title: string,
