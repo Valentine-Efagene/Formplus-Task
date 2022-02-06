@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { SUCCEEDED, FAILED, IDLE, LOADING } from '../../model/loadingState'
 import { fetchData } from '../../api/data'
 import { ALL } from "../../model/categories"
-import { ASCENDING, DEFAULT, DESCENDING } from "../../model/order"
+import { DEFAULT } from "../../model/order"
 
 const fetch = createAsyncThunk(
   'data/fetch',
@@ -34,7 +34,7 @@ const dataSlice = createSlice({
   reducers: {
     setCategory(state, action) {
       state.category = action.payload
-      state.date = 'NO'
+      state.date = DEFAULT
       state.search = null
       state.order = DEFAULT
       state.page = 1
