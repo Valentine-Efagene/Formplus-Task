@@ -55,7 +55,9 @@ function App() {
             : filteredData.length
         )}
       ></Grid>
-      <Paginator length={filteredData.length} currentPage={page} />
+      {data.length !== 0 && (
+        <Paginator length={filteredData.length} currentPage={page} />
+      )}
     </div>
   )
 }
