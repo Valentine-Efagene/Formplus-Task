@@ -36,7 +36,7 @@ const dataSlice = createSlice({
       state.category = action.payload
       state.date = 'NO'
       state.search = null
-      state.order = ASCENDING
+      state.order = DEFAULT
       state.page = 1
     },
     setDate(state, action) {
@@ -57,6 +57,7 @@ const dataSlice = createSlice({
     },
     setSearch(state, action) {
       state.search = action.payload
+      state.page = 1
     },
   },
   extraReducers(builder) {

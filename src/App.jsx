@@ -14,6 +14,7 @@ import { fetch as fetchData } from './redux/slice/dataSlice'
 import Info from './components/Info/Info'
 
 function App() {
+  const NUMBER_PER_PAGE = 16
   const dispatch = useDispatch()
   const { data, page, category, date, order, search } = useSelector(
     (state) => state.data
@@ -33,14 +34,8 @@ function App() {
 
   let filteredData = filterByCategory(category, data)
   filteredData = sortByOrder(filteredData, order)
-
   filteredData = sortByDate(filteredData, date)
-
-  if (search) {
-    filteredData = searchName(search, filteredData)
-  }
-
-  const NUMBER_PER_PAGE = 16
+  filteredData = search ? searchName(search, filteredData) : filteredData
 
   return (
     <div className={styles.app}>

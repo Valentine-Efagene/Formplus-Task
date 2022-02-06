@@ -1,23 +1,14 @@
 import { number } from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './Paginator.module.css'
 import { setPage } from '../../redux/slice/dataSlice'
 
-const Paginator = ({ currentPage, length }) => {
+const Paginator = ({ length }) => {
   const dispatch = useDispatch()
   const ref = useRef()
-  //const { page } = useSelector((state) => state.data)
+  const { page } = useSelector((state) => state.data)
   const pages = Math.ceil(length / 15)
-
-  const onChange = (e) => {
-    try {
-      const _page = parseInt(e.target.value)
-      setNewPage(_page)
-    } catch (error) {
-      console.log(error.message)
-    }
-  }
 
   const handleKeyDown = (e) => {
     try {
@@ -30,24 +21,30 @@ const Paginator = ({ currentPage, length }) => {
     }
   }
 
+  useEffect(() => {
+    if (ref?.current) {
+      ref.current.value = page
+    }
+  }, [page])
+
   // range = [15 x (p - 1) + 1, 15 x p]
 
   return (
     <div className={styles.paginator}>
       <button
         onClick={() => {
-          dispatch(setPage(currentPage - 1))
-          ref.current.value = currentPage - 1
+          dispatch(setPage(page - 1))
+          ref.current.value = page - 1
         }}
         className={styles.previous}
-        disabled={currentPage == 1}
+        disabled={page == 1}
       >
-        {currentPage > 1 && <i className="fas fa-angle-left"></i>} Previous
+        {page > 1 && <i className="fas fa-angle-left"></i>} Previous
       </button>
       <span className={styles.middle}>
         <input
           ref={ref}
-          placeholder={currentPage}
+          placeholder={page}
           type="text"
           onKeyDown={handleKeyDown}
           className={styles.currentPage}
@@ -57,20 +54,19 @@ const Paginator = ({ currentPage, length }) => {
       <button
         className={styles.next}
         onClick={() => {
-          dispatch(setPage(currentPage + 1))
-          ref.current.value = currentPage + 1
+          dispatch(setPage(page + 1))
+          ref.current.value = page + 1
         }}
-        disabled={currentPage == pages}
+        disabled={page == pages}
       >
-        Next{' '}
-        {length > 15 * currentPage && <i className="fas fa-angle-right"></i>}
+        Next {length > 15 * page && <i className="fas fa-angle-right"></i>}
       </button>
     </div>
   )
 }
 
 Paginator.propTypes = {
-  currentPage: number,
+  page: number,
   length: number,
 }
 
