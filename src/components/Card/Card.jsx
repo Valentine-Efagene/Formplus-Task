@@ -15,7 +15,7 @@ const Card = ({ data, currentCategory }) => {
   return (
     <div className={styles.card}>
       {/* <div className={styles.header}>{`${currentCategory} templates`}</div> */}
-      <div className={styles.name}>{name}</div>
+      <div className={styles.name}>{name} Template</div>
       <div className={styles.description}>{description}</div>
       {/* <div className={styles.category}>{category.join(', ')}</div> */}
       <div className={styles.created}>{toDateTime(created)}</div>
