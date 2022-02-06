@@ -4,6 +4,7 @@ import styles from './App.module.css'
 import Grid from './components/Grid/Grid'
 import Paginator from './components/Paginator/Paginator'
 import ToolBar from './components/ToolBar/ToolBar'
+import Spinner from './components/Spinner/Spinner'
 import {
   filterByCategory,
   searchName,
@@ -45,6 +46,7 @@ function App() {
         icon={<i className="fas fa-info-circle"></i>}
       />
       <div className={styles.category}>{category} Templates</div>
+      {data.length === 0 && <Spinner />}
       <Grid
         data={filteredData.slice(
           (page - 1) * NUMBER_PER_PAGE,

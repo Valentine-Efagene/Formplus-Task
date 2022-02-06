@@ -23,15 +23,15 @@ import '@cypress/code-coverage/support'
 beforeEach(() => {
   // If this failed with the promise error, rerun the test (clicking the rerun button on the browser) usually fixes it
   // If that fails, just use the method where you simply return the data as a js array
-  cy.intercept(
+  /*cy.intercept(
     {
       method: 'GET', // Route all GET requests
       url: 'https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates', // that have a URL that matches '//*'
     },
     { fixture: 'data' }
-  ).as('data') // and assign an alias
+  ).as('data') // and assign an alias*/
 
-  /*cy.intercept(
+  cy.intercept(
     {
       method: 'GET', // Route all GET requests
       url: 'https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates', // that have a URL that matches '//*'
@@ -202,5 +202,5 @@ beforeEach(() => {
         "link": "https://formpl.us/templates",
         "name": "amet, occaecat commodo"
       }]
-  ).as('data') // and assign an alias*/
+  ).as('data') // and assign an alias
 })
