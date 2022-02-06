@@ -185,8 +185,8 @@ export async function fetchData() {
     }
   ]
   //didnt work //const data = await axios.get("https://api.example.com/itemshttps://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates")
-  //const data = await axios.get("https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates")
-  //return data
+  const data = await axios.get("https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates")
+  return data
 
-  return { data: _data }
+  //return { data: _data }
 }

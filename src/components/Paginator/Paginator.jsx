@@ -14,6 +14,9 @@ const Paginator = ({ length }) => {
     try {
       if (e.key === 'Enter') {
         const _page = parseInt(e.target.value)
+
+        if (_page < 0 || _page > pages) return
+
         dispatch(setPage(_page))
       }
     } catch (error) {
@@ -33,6 +36,8 @@ const Paginator = ({ length }) => {
     <div className={styles.paginator}>
       <button
         onClick={() => {
+          if (page <= 0) return
+
           dispatch(setPage(page - 1))
           ref.current.value = page - 1
         }}
@@ -54,6 +59,8 @@ const Paginator = ({ length }) => {
       <button
         className={styles.next}
         onClick={() => {
+          if (page >= pages) return
+
           dispatch(setPage(page + 1))
           ref.current.value = page + 1
         }}

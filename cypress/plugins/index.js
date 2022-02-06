@@ -18,8 +18,12 @@
 // eslint-disable-next-line no-unused-vars
 
 const injectDevServer = require("@cypress/react/plugins/react-scripts");
+const codeCoverageTask = require('@cypress/code-coverage/task')
 
 module.exports = (on, config) => {
-  injectDevServer(on, config);
+  if (config.testingType === 'component') {
+    injectDevServer(on, config)
+  }
+  codeCoverageTask(on, config)
   return config;
 };
