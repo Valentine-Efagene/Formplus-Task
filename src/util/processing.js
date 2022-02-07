@@ -47,6 +47,26 @@ export const sortByDate = (data, order) => {
 
 /**
  * 
+ * @param {string} str 
+ * @returns string
+ */
+export const toTitleCase = (str) => {
+  const words = str.split(' ')
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i]
+    words[i] = word.charAt(0).toUpperCase() + (word.length > 1 ? word.slice(1).toLowerCase() : '')
+  }
+
+  return words.join(' ')
+}
+
+export const removeTrailingPunctuation = (str) => {
+  return str.replace(/[.,]$/, '')
+}
+
+/**
+ * 
  * @param {array} data 
  * @param {string} order 
  * @returns array

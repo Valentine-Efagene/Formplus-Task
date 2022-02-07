@@ -1,5 +1,5 @@
 import { ASCENDING, DESCENDING } from '../../../src/model/order'
-import { searchName, sortByDate, sortByOrder } from '../../../src/util/processing'
+import { removeTrailingPunctuation, searchName, sortByDate, sortByOrder, toTitleCase } from '../../../src/util/processing'
 
 describe('Processing', () => {
   const data = [
@@ -44,5 +44,15 @@ describe('Processing', () => {
   it('searches', () => {
     const result = searchName('dra', data)
     expect(result.length).to.equal(2)
+  })
+
+  it('converts to title case', () => {
+    const result = toTitleCase('feEl mY lOve')
+    expect(result).to.equal('Feel My Love')
+  })
+
+  it('removes trailing punctuations', () => {
+    const result = removeTrailingPunctuation('Hello, There.')
+    expect(result).to.equal('Hello, There')
   })
 })
