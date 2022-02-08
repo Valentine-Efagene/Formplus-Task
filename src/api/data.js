@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export async function fetchData() {
-  const _data = [
+  /*const _data = [
     {
       category: ['Health'],
       created: '2022-01-01T21:31:05.113387',
@@ -184,9 +184,9 @@ export async function fetchData() {
       "name": "ullamco eiusmod"
     }
   ]
-  //didnt work //const data = await axios.get("https://api.example.com/itemshttps://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates")
+
+  return { data: _data }*/
+
   const data = await axios.get("https://front-end-task-dot-result-analytics-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates")
   return data
-
-  //return { data: _data }
 }

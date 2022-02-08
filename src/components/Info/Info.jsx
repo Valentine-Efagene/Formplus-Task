@@ -11,6 +11,9 @@ const Info = ({ text, icon }) => {
   )
 }
 
-Info.propTypes = { text: string, icon: any }
+Info.propTypes = {
+  icon: any,
+  text: string,
+}
 
 export default Info

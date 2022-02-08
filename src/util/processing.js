@@ -2,7 +2,7 @@ import { ALL } from "../model/categories"
 import { ASCENDING, DEFAULT } from "../model/order"
 
 /**
- * 
+ * Filters by category
  * @param {string} category 
  * @param {array} data 
  * @returns array
@@ -14,7 +14,7 @@ export const filterByCategory = (category, data) => {
 }
 
 /**
- * 
+ * Searches for a name
  * @param {string} name 
  * @param {array} data 
  * @returns array
@@ -24,7 +24,7 @@ export const searchName = (name, data) => {
 }
 
 /**
- * 
+ * Sorts by date
  * @param {array} data 
  * @returns array
  */
@@ -46,7 +46,7 @@ export const sortByDate = (data, order) => {
 }
 
 /**
- * 
+ * Converts string to title case
  * @param {string} str 
  * @returns string
  */
@@ -66,9 +66,9 @@ export const removeTrailingPunctuation = (str) => {
 }
 
 /**
- * 
+ * Sorts by ascending or descending order
  * @param {array} data 
- * @param {string} order 
+ * @param {string} order ('ASCENDING' or 'DESCENDING')
  * @returns array
  */
 export const sortByOrder = (data, order) => {

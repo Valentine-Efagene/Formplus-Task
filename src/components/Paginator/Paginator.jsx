@@ -73,7 +73,6 @@ const Paginator = ({ length }) => {
 }
 
 Paginator.propTypes = {
-  page: number,
   length: number,
 }
 

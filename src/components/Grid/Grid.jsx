@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Grid.module.css'
 import Card from '../Card/Card'
-import { array } from 'prop-types'
+import { shape, arrayOf, string } from 'prop-types'
 
 const Grid = ({ data }) => {
   return (
@@ -13,6 +13,16 @@ const Grid = ({ data }) => {
   )
 }
 
-Grid.propTypes = { data: array }
+Grid.propTypes = {
+  data: arrayOf(
+    shape({
+      category: arrayOf(string),
+      created: string,
+      description: string,
+      link: string,
+      name: string,
+    })
+  ),
+}
 
 export default Grid

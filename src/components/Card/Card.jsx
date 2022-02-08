@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Card.module.css'
-import { object } from 'prop-types'
+import { string } from 'prop-types'
 import { removeTrailingPunctuation, toTitleCase } from '../../util/processing'
 
 const Card = ({ data }) => {
@@ -18,6 +18,12 @@ const Card = ({ data }) => {
   )
 }
 
-Card.propTypes = { data: object }
+Card.propTypes = {
+  data: PropTypes.shape({
+    description: string,
+    link: string,
+    name: string,
+  }),
+}
 
 export default Card

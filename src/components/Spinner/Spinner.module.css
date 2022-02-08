@@ -11,6 +11,12 @@
   transform: rotate(calc(18deg * var(--i)));
 }
 
+@media screen {
+  .spinner span {
+    left: 35%;
+  }
+}
+
 .spinner span::before {
   content: '';
   position: absolute;

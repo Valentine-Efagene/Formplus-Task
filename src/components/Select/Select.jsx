@@ -1,4 +1,4 @@
-import { array, func, string } from 'prop-types'
+import { arrayOf, func, string } from 'prop-types'
 import React from 'react'
 import styles from './Select.module.css'
 import { useDispatch } from 'react-redux'
@@ -28,7 +28,7 @@ const Select = ({ defaultValue, options, setter, title }) => {
 
 Select.propTypes = {
   defaultValue: string,
-  options: array,
+  options: arrayOf(string),
   setter: func,
   title: string,
 }
