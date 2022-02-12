@@ -3,6 +3,7 @@ import styles from './SearchBar.module.css'
 import { useDispatch } from 'react-redux'
 import { setSearch } from '../../redux/slice/dataSlice'
 import { useRef } from 'react'
+import searchIcon from './searchIcon.svg'
 
 const SearchBar = () => {
   const dispatch = useDispatch()
@@ -34,7 +35,7 @@ const SearchBar = () => {
         placeholder="Search Templates"
       />
       <button className={styles.searchButton} onClick={handleSearch}>
-        <i className={`fa fa-search ${styles.SearchIcon}`}></i>
+        <img className={styles.searchIcon} src={searchIcon} alt="alt" />
       </button>
     </span>
   )
