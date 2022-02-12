@@ -13,6 +13,7 @@ import {
 } from './util/processing'
 import { fetch as fetchData } from './redux/slice/dataSlice'
 import Info from './components/Info/Info'
+import infoIcon from './infoIcon.svg'
 
 function App() {
   const NUMBER_PER_PAGE = 16
@@ -43,7 +44,7 @@ function App() {
       <ToolBar />
       <Info
         text="Tada! Get started with a free template. Can't find what you are looking for? Search from the 1000+ available templates"
-        icon={<i className="fas fa-info-circle"></i>}
+        icon={<img className={styles.infoIcon} src={infoIcon} alt="alt" />}
       />
       <div className={styles.category}>{category} Templates</div>
       {data.length === 0 && <Spinner />}

@@ -6,3 +6,10 @@
   margin-bottom: 20px;
   margin-top: 10px;
 }
+
+.infoIcon {
+  color: #f8810a;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+}
